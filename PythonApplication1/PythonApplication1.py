@@ -10,7 +10,7 @@ class Functionaltest(unittest.TestCase):
     def test_occurence(self):
 
         # Navigating to web page by url or local path
-        self.driver.get('C:\\Users\\Sahana Vagga\\source\\repos\\selenium\\PythonApplication1\\WebPage1.html')
+        self.driver.get('http://gmail.com')
 
         # Filling Forms
         ele = self.driver.find_element_by_id('fname')
@@ -29,10 +29,20 @@ class Functionaltest(unittest.TestCase):
             print("Value is: %s" % option.get_attribute("value"))
             option.click()
 
-        # Form submit
-        s = self.driver.find_element_by_xpath('/html/body/form/input[3]')
+        '''Form submit by using Xpath'''
+        #s = self.driver.find_element_by_xpath('/html/body/form/input[3]')
+        #s.click()
+        #print('form passed')
+
+        '''Form sublit using id'''
+        s = self.driver.find_element_by_id('submit')
         s.click()
         print('form passed')
+        # navigation to back and forward of current page
+        self.driver.back()
+        print('form backward done')
+        self.driver.forward()
+        print('form forward done')
 
     def tearDown(self):
         self.driver.quit()
